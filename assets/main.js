@@ -79,8 +79,17 @@
     set(50);
   });
 
+  // ヘッダーの目次メニュー
+  const menuBtn = document.querySelector('.menu-btn');
+  const menu = document.getElementById('menu');
+  const setMenu = open => { menu.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); };
+  menuBtn.addEventListener('click', e => { e.stopPropagation(); setMenu(menu.hidden); });
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', e => { if (!menu.hidden && !menu.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); menuBtn.focus(); } });
+
   // 目次の現在位置と読了バー
-  const links = [...document.querySelectorAll('.sidenav a')];
+  const links = [...menu.querySelectorAll('a')];
   const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
   const bar = document.querySelector('.progress');
   const onScroll = () => {
