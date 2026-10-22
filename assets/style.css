@@ -168,22 +168,6 @@ blockquote.prompt::before { content: "AI"; position: absolute; left: 12px; top: 
 .live.paused .live-ctrl .tag::before { animation: none; background: var(--muted); }
 @keyframes blink { 50% { opacity: .25; } }
 
-/* ---------- before / after ---------- */
-.ba { margin: 18px 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
-.ba-prompt { padding: 16px 20px; background: var(--bg); border-bottom: 1px solid var(--line); }
-.ba-prompt .lbl { font-size: 12px; font-weight: 700; color: var(--blue); letter-spacing: .08em; }
-.ba-prompt pre { margin: 6px 0 0; font-family: var(--mono); font-size: 13.5px; white-space: pre-wrap; color: var(--ink); }
-.ba-tabs { display: flex; justify-content: center; gap: 6px; padding: 12px; }
-.ba-tabs button { font: inherit; font-size: 13px; font-weight: 700; padding: 5px 16px; border-radius: 99px; border: 1px solid var(--line); background: #fff; color: var(--ink-2); cursor: pointer; }
-.ba-tabs button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
-.ba-stage { position: relative; margin: 0 16px; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); user-select: none; touch-action: pan-y; }
-.ba-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.ba-stage .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
-.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: #fff; box-shadow: 0 0 0 1px rgba(20, 34, 53, .3); pointer-events: none; }
-.ba-handle::after { content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; border-radius: 50%; background: #fff; color: var(--navy); display: grid; place-items: center; font-weight: 900; box-shadow: 0 2px 10px rgba(20, 34, 53, .3); }
-.ba-ends { display: flex; justify-content: space-between; margin: 0 16px; font-size: 12.5px; font-weight: 700; color: var(--muted); }
-.ba input[type="range"] { display: block; width: calc(100% - 32px); margin: 12px 16px 4px; accent-color: var(--navy); }
-
 /* ---------- figures, tables ---------- */
 figure { margin: 18px 0; }
 figure img { border-radius: 10px; border: 1px solid var(--line); }

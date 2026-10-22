@@ -584,21 +584,9 @@ uv run playwright install chromium</pre></div></li>
     </tbody>
   </table></div>
 
-  <div class="ba">
-    <div class="ba-prompt"><span class="lbl">2章の発表で実際に出した指示</span><pre>図の配置・動きは維持して、表紙・章扉・見出し・表・引用の外観を青系で整えて。
-ページ番号は右下で、罫線の上に独立させて。</pre></div>
-    <div class="ba-tabs"><button type="button" data-pos="100">修正前</button><button type="button" data-pos="50">比較</button><button type="button" data-pos="0">修正後</button></div>
-    <div class="ba-stage">
-      <img src="assets/img/background-before.png" alt="修正前の研究背景スライド。ページ番号が左下にあり、下部に操作説明が並ぶ" width="1280" height="720">
-      <img class="after" src="assets/img/background-after.png" alt="修正後の研究背景スライド。見出し帯が整い、ページ番号が右下に独立している" width="1280" height="720">
-      <div class="ba-handle"></div>
-    </div>
-    <input type="range" min="0" max="100" value="50" aria-label="修正前と修正後の境界の位置">
-    <div class="ba-ends"><span>← 左側：修正前</span><span>右側：修正後 →</span></div>
-  </div>
 
   <ul class="tight">
-    <li><strong>変えてほしくないものを明示する</strong>：AI は頼んでいない部分まで「ついでに」直すことがある（上の例の「図の配置・動きは維持して」）。</li>
+    <li><strong>変えてほしくないものを明示する</strong>：AI は頼んでいない部分まで「ついでに」直すことがある。「図の配置・動きは維持して、外観だけ変えて」のように書く。</li>
     <li><strong>理由も添える</strong>：「プロジェクターが暗いので、薄い背景の上の文字は濃くして」のように書くと、他の箇所にも同じ考え方を当てはめてくれる。</li>
     <li><strong>中身の修正はメモに戻ってから</strong>：先に <code>memo.md</code> を直し「メモに合わせてスライドを更新して」と頼む。ずれると AI が古いメモに戻してしまうことがある。</li>
     <li><strong>一度に頼むのは3〜5個まで</strong>。誤字や数px の位置調整は、自分で直接直すほうが早い。</li>

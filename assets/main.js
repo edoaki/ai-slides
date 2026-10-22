@@ -55,30 +55,6 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; send(); }, {threshold: .15}).observe(live);
   });
 
-  // 修正前⇄修正後
-  document.querySelectorAll('.ba').forEach(ba => {
-    const stage = ba.querySelector('.ba-stage');
-    const range = ba.querySelector('input[type="range"]');
-    const buttons = [...ba.querySelectorAll('.ba-tabs button')];
-    const set = v => {
-      v = Math.max(0, Math.min(100, v));
-      stage.style.setProperty('--pos', v + '%');
-      range.value = v;
-      buttons.forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.pos) === v)));
-    };
-    range.addEventListener('input', () => set(Number(range.value)));
-    buttons.forEach(b => b.addEventListener('click', () => set(Number(b.dataset.pos))));
-    let drag = false;
-    const move = e => {
-      const r = stage.getBoundingClientRect();
-      set(Math.round((e.clientX - r.left) / r.width * 100));
-    };
-    stage.addEventListener('pointerdown', e => { drag = true; stage.setPointerCapture(e.pointerId); move(e); });
-    stage.addEventListener('pointermove', e => drag && move(e));
-    stage.addEventListener('pointerup', () => (drag = false));
-    set(50);
-  });
-
   // ヘッダーの目次メニュー
   const menuBtn = document.querySelector('.menu-btn');
   const menu = document.getElementById('menu');
