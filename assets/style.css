@@ -89,6 +89,9 @@ li { margin: 4px 0; }
 .callout > :first-child { margin-top: 0; }
 .callout > :last-child { margin-bottom: 0; }
 .callout-title { font-weight: 700; display: block; margin-bottom: 4px; }
+.repo-callout { border-left: 4px solid var(--blue); }
+.repo-link { display: inline-block; max-width: 100%; font-size: clamp(18px, 2.4vw, 21px); font-weight: 700; line-height: 1.5; }
+.repo-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 2px; }
 .see { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; text-decoration: none; background: var(--blue-soft); padding: 4px 12px; border-radius: 99px; }
 .see::before { content: "→"; }
 

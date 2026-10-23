@@ -231,7 +231,15 @@ HTML --
       <div class="pro"><b>長所</b>テキストの編集だけで完結し、AI が得意で利用枠も少ない。文言は qmd を自分で直せばよく、Git で前の版にも戻せる。</div>
       <div class="con"><b>短所</b>座標の微調整は苦手。ただし、はみ出しや重なりは自動検査させれば AI が自分で直す（<a href="#revise">5章</a>）。</div>
     </div>
-    <p>そのまま使える基盤を <a href="https://github.com/murata-lab/quarto-html" target="_blank" rel="noopener">murata-lab/quarto-html</a> で公開しています。1コマンドでオフラインでも見られる HTML と PDF を出力し、ビルドのたびにはみ出しや重なりを自動検査します。</p>
+    <div class="callout repo-callout">
+      <strong class="callout-title">そのまま使える制作環境を GitHub で公開</strong>
+      <a class="repo-link" href="https://github.com/murata-lab/quarto-html" target="_blank" rel="noopener">murata-lab/quarto-html <span aria-hidden="true">↗</span></a>
+      <p>1コマンドでオフラインでも見られる HTML と PDF を出力し、ビルドのたびにはみ出しや重なりを自動検査します。</p>
+    </div>
+
+    <h4>本文と図の HTML を分けて管理する</h4>
+    <p>このリポジトリでは、本文は <code>decks/発表名/slides.qmd</code>、図やアニメーションの HTML は別フォルダの <code>html/図名/index.html</code> に置きます。AI にはそれぞれを編集させ、qmd から <code>iframe</code> で図を埋め込みます。同じ図を別の発表でも使えます。</p>
+    <p>配布用にビルドすると、図の HTML もスライド本体に取り込まれ、1つの HTML ファイルになります。</p>
 
     <h4>qmd の書き方</h4>
     <div class="qmd-demo" id="qmd-demo">
@@ -251,7 +259,7 @@ HTML --
     </div>
     <ul class="tight">
       <li><code>##</code> が1枚のスライド。箇条書きや太字は普通の Markdown と同じ。</li>
-      <li><code>```{=html}</code> の中に HTML を書くと、そのまま埋め込まれる。</li>
+      <li><code>```{=html}</code> の中に <code>iframe</code> を書き、別フォルダの図の HTML を読み込む。</li>
       <li><code>[@キー]</code> で引用すると、ページ下に書誌情報が自動で入る。</li>
       <li>基本は AI が書く。文言を少し直すくらいなら、自分で直接編集するほうが早い。</li>
     </ul>
