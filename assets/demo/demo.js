@@ -27,9 +27,24 @@
     frames.forEach(f => f.contentWindow.animation?.setVisible?.(!paused && !document.hidden));
     if (!paused && ready && !document.hidden) timer = setTimeout(tick, 1100);
   }
-  window.demo = {setPaused, get step() {return step;}, get maxStep() {return maxStep;}, get paused() {return paused;}, get ready() {return ready;}};
+  // ?build のときは、親から届いた段階（1〜4）までの要素だけを見せる。アニメーションは出た時点で最初から。
+  let build = new URLSearchParams(location.search).has('build') ? 1 : 0;
+  if (build) document.body.dataset.build = build;
+  async function setBuild(value) {
+    const shown = build >= 3;
+    build = value;
+    document.body.dataset.build = value;
+    if (build >= 3 && !shown && ready) {
+      generation++; clearTimeout(timer);
+      step = 0; await paint(false);
+      if (!paused && !document.hidden) timer = setTimeout(tick, 900);
+    }
+  }
+  window.demo = {setPaused, setBuild, get step() {return step;}, get maxStep() {return maxStep;}, get paused() {return paused;}, get ready() {return ready;}};
   addEventListener('message', e => {
-    if (e.source === parent && e.origin === location.origin && e.data?.type === 'demo-pause' && typeof e.data.paused === 'boolean') setPaused(e.data.paused);
+    if (e.source !== parent || e.origin !== location.origin) return;
+    if (e.data?.type === 'demo-pause' && typeof e.data.paused === 'boolean') setPaused(e.data.paused);
+    if (e.data?.type === 'demo-build' && Number.isInteger(e.data.level)) setBuild(e.data.level);
   });
   document.addEventListener('visibilitychange', () => {
     generation++; clearTimeout(timer);

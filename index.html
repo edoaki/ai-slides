@@ -23,16 +23,14 @@
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="bars" aria-hidden="true"></span>目次</button>
   <nav class="menu" id="menu" aria-label="目次" hidden>
     <ol>
-      <li><a href="#intro"><span>0</span>はじめに</a></li>
       <li><a href="#flow"><span>1</span>推奨する流れ</a></li>
       <li><a href="#example"><span>2</span>通し例：研究背景スライド</a></li>
       <li><a href="#methods"><span>3</span>3つの作り方</a></li>
       <li><a href="#animation"><span>4</span>動くHTMLアニメーション</a></li>
-      <li><a href="#choose"><span>5</span>どれを選ぶか</a></li>
-      <li><a href="#revise"><span>6</span>仕上げ：修正指示のコツ</a></li>
-      <li><a href="#faq"><span>7</span>よくある質問</a></li>
-      <li><a href="#summary"><span>8</span>まとめ</a></li>
-      <li><a href="#links"><span>9</span>参考リンク</a></li>
+      <li><a href="#revise"><span>5</span>仕上げ：修正指示のコツ</a></li>
+      <li><a href="#faq"><span>6</span>よくある質問</a></li>
+      <li><a href="#summary"><span>7</span>まとめ</a></li>
+      <li><a href="#links"><span>8</span>参考リンク</a></li>
     </ol>
   </nav>
   <div class="progress" aria-hidden="true"></div>
@@ -40,76 +38,34 @@
 
 <div class="hero" id="top">
   <div class="hero-inner">
-    <div>
+    <div class="hero-text">
       <span class="eyebrow">FOR LAB STUDENTS · RESEARCH TALKS</span>
       <h1>AIを使った<br>スライド作成のすすめ</h1>
       <p class="lead">内容と伝え方は自分で考える。<br>配置やデザインは AI に任せる。</p>
-      <div class="hero-actions">
-        <a class="btn ghost" href="https://murata-lab.github.io/quarto-html/nco-intro.html" target="_blank" rel="noopener">完成スライド例を開く ↗</a>
-      </div>
+      <ol class="hero-toc" aria-label="目次">
+        <li><a href="#flow"><span>1</span>流れ</a></li>
+        <li><a href="#example"><span>2</span>通し例</a></li>
+        <li><a href="#methods"><span>3</span>3つの作り方</a></li>
+        <li><a href="#animation"><span>4</span>アニメーション</a></li>
+        <li><a href="#revise"><span>5</span>修正のコツ</a></li>
+      </ol>
     </div>
-    <div class="hero-visual" aria-label="メモからスライドができるまで">
-      <div class="flow-stack">
-        <div class="flow-card"><span class="n">1</span><div><b>文章で全体を構成する</b><small>思いついたままのメモでよい</small></div></div>
-        <div class="flow-card"><span class="n">2</span><div><b>チャットAIと推敲する</b><small>曖昧なところを具体的にする</small></div></div>
-        <div class="flow-card"><span class="n">3</span><div><b>メモをそのまま指示にする</b><small>AI が qmd とアニメーションを書く</small></div></div>
-        <div class="flow-card final"><div class="slide-frame"><iframe src="assets/demo/background.html" title="完成した研究背景スライドのアニメーション（ループ再生）"></iframe></div></div>
-      </div>
-    </div>
+    <figure class="hero-demo">
+      <div class="slide-frame"><iframe src="https://murata-lab.github.io/quarto-html/nco-intro.html" title="このページの方法で作った発表スライド（全20枚）" allow="fullscreen" allowfullscreen></iframe></div>
+      <figcaption>
+        <span class="cap"><span class="tag">DEMO</span>この方法で作った発表スライド（全20枚）。クリックで進む・左端で戻る</span>
+        <a class="public-link" href="https://murata-lab.github.io/quarto-html/nco-intro.html" target="_blank" rel="noopener">公開ページで見る<span>murata-lab.github.io/quarto-html/nco-intro.html</span> ↗</a>
+      </figcaption>
+    </figure>
   </div>
 </div>
 
 <main class="container">
 
-<!-- ====================== 0 ====================== -->
-<section class="chapter" id="intro">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 0</span><h2>はじめに</h2></div>
-
-  <p>スライド作りで時間をかけるべきなのは、<strong>何を伝えるか、それをどう伝えるかを考えること</strong>です。図の配置や文字の大きさ、位置の微調整は、発表の中身を良くする作業ではありません。そこでこのページでは、内容と伝え方は自分で考え、配置やデザインは AI に任せ、修正の指示を出しながら仕上げていく作り方を紹介します。</p>
-  <p>AI のスライド生成ツールを使えば、それらしいスライドはすぐにできます。ただ、細部に誤りがあったり全体が大ざっぱだったりして、そのままでは使えないことがほとんどです。発表は時間が限られ、伝えられる量にも限りがあるので、何をどう伝えるかを決めないまま作ると良いスライドにはなりません。全部を AI 任せにすると自分の理解も深まらず、時間内に伝えたいことが伝わらない発表になりがちなので、おすすめしません。</p>
-
-  <div class="two-col">
-    <div>
-      <h3>対象読者</h3>
-      <p>研究室の学生。ゼミ・卒論発表・修論発表・学会発表などのスライドを、AI を使って速く、質を落とさずに作りたい人向けです。</p>
-    </div>
-    <div>
-      <h3>このページで分かること</h3>
-      <p>AI を使ったスライド作りの、自分に合ったやり方が分かります。どこまでを自分で考え、どこからを AI に任せればよいか、自分の発表や慣れているツールにはどの作り方が向いているかを判断できるようになります。</p>
-    </div>
-  </div>
-
-  <details>
-    <summary>全部を AI 任せにしたときによくある失敗</summary>
-    <div class="body">
-      <ul>
-        <li>1枚に情報を詰め込みすぎて、持ち時間内に話しきれない。</li>
-        <li>見た目はそれらしい図でも、意味が分かりにくかったり、内容とずれていたりする。</li>
-        <li>教科書的な一般論の流れになり、自分の研究で何を主張したいのかが見えない。</li>
-        <li>自分で考えていないので、質疑で深く聞かれたときに答えられない。</li>
-      </ul>
-      <p>どれも、内容を自分で決めてから AI に渡せばかなり防げます。そのうえで修正を重ねれば、1から自分で作るより速く、良いスライドが作れます。</p>
-    </div>
-  </details>
-
-  <h3 id="toc">目次</h3>
-  <ol class="toc">
-    <li><a href="#flow"><span class="tn">1</span><b>推奨する流れ</b></a></li>
-    <li><a href="#example"><span class="tn">2</span><b>通し例：研究背景スライド</b></a></li>
-    <li><a href="#methods"><span class="tn">3</span><b>3つの作り方</b></a></li>
-    <li><a href="#animation"><span class="tn">4</span><b>動くHTMLアニメーション</b></a></li>
-    <li><a href="#choose"><span class="tn">5</span><b>どれを選ぶか</b></a></li>
-    <li><a href="#revise"><span class="tn">6</span><b>仕上げ：修正指示のコツ</b></a></li>
-    <li><a href="#faq"><span class="tn">7</span><b>よくある質問</b></a></li>
-    <li><a href="#summary"><span class="tn">8</span><b>まとめ</b></a></li>
-    <li><a href="#links"><span class="tn">9</span><b>参考リンク</b></a></li>
-  </ol>
-</section>
-
 <!-- ====================== 1 ====================== -->
 <section class="chapter" id="flow">
   <div class="chapter-head"><span class="chapter-num">CHAPTER 1</span><h2>推奨する流れ</h2></div>
-  <p class="intro-text">質の高いスライドを、なるべく AI を活用しながら作るための進め方です。</p>
+  <p class="intro-text">時間をかけるべきなのは<strong>何を、どう伝えるか</strong>。配置や大きさの調整は AI に任せて、修正の指示を出しながら仕上げます。</p>
 
   <div class="steps">
     <div class="step">
@@ -119,7 +75,7 @@
         <path d="M58 38h28M58 50h36M58 62h20" stroke="#1f63a8" stroke-width="4" stroke-linecap="round"/>
         <g transform="rotate(38 118 52)"><rect x="112" y="18" width="12" height="52" rx="3" fill="#c0661f"/><rect x="112" y="18" width="12" height="9" rx="3" fill="#8a4512"/><path d="M112 70l6 13 6-13z" fill="#f3d2b5"/><path d="M116.5 79l1.5 4 1.5-4z" fill="#142235"/></g>
       </svg>
-      <span class="sn">STEP 1</span><b>文章で全体を構成する</b><small>説明の順番と、各スライドで言いたいことを文章で書く</small><span class="who me">自分</span>
+      <span class="sn">STEP 1</span><b>文章で全体を構成する</b><small>説明の順番と、各スライドで言いたいこと</small><span class="who me">自分</span>
     </div>
     <div class="step">
       <svg class="illust" viewBox="0 0 160 96" aria-hidden="true">
@@ -129,7 +85,7 @@
         <text x="18" y="70" font-size="20" font-weight="900" fill="#1f63a8" font-family="sans-serif">?</text>
         <path d="M36 58h42M36 68h30" stroke="#1f63a8" stroke-width="4" stroke-linecap="round"/>
       </svg>
-      <span class="sn">STEP 2</span><b>チャットAIと会話して構成を推敲する</b><small>曖昧なところを質問させ、具体的な書き方に直す</small><span class="who me">自分</span> <span class="who ai">チャットAI</span>
+      <span class="sn">STEP 2</span><b>チャットAIと推敲する</b><small>曖昧なところを質問させて直す</small><span class="who me">自分</span> <span class="who ai">チャットAI</span>
     </div>
     <div class="step">
       <svg class="illust" viewBox="0 0 160 96" aria-hidden="true">
@@ -143,7 +99,7 @@
         <rect x="134" y="38" width="5" height="16" fill="#1f63a8"/><rect x="142" y="44" width="5" height="10" fill="#1f8a8a"/>
         <path d="M110 72h24" stroke="#b8c7d8" stroke-width="3" stroke-linecap="round"/>
       </svg>
-      <span class="sn">STEP 3</span><b>構成の文章をそのまま指示にして、スライドを作らせる</b><small>配置・デザイン・アニメーションは AI が書く</small><span class="who ai">AI</span>
+      <span class="sn">STEP 3</span><b>文章をそのまま指示にする</b><small>配置・デザイン・アニメーションは AI</small><span class="who ai">AI</span>
     </div>
     <div class="step">
       <svg class="illust" viewBox="0 0 160 96" aria-hidden="true">
@@ -154,39 +110,39 @@
         <path d="M118 28a26 26 0 0 1-4 40" fill="none" stroke="#1f63a8" stroke-width="3" stroke-linecap="round"/><path d="M108 62l6 8 4-9z" fill="#1f63a8"/>
         <circle cx="62" cy="80" r="10" fill="#1f8a8a"/><path d="M57 80l4 4 7-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="sn">STEP 4</span><b>修正の指示を出して仕上げる</b><small>機械的な確認は AI に回させ、中身は自分で見る</small><span class="who ai">AI</span> <span class="who me">自分</span>
+      <span class="sn">STEP 4</span><b>修正の指示で仕上げる</b><small>機械的な確認は AI、中身は自分</small><span class="who ai">AI</span> <span class="who me">自分</span>
     </div>
   </div>
-  <a class="see" href="#example">実際にこの流れで1枚作った例は 2章</a>
 
-  <h3>最初からスライドを作り出さない</h3>
-  <p>発表資料でよくある失敗は、全体の見通しが甘いままスライドを作り出してしまうことです。まずは文章で全体を構成し、文章の状態で内容を推敲します。説明する順番は良いか、話が飛んでいないか、といった点はスライドよりも文章のほうが確認しやすいです。</p>
-  <div class="code light"><div class="label"><span>構成メモの例</span></div><pre>1. 研究背景
-   組合せ最適化を導入する。
-   巡回セールスマン問題、スケジューリング問題の具体例を見せる。
-2. 〇〇</pre></div>
-  <p>文章で会話するほうが修正の負荷が低く、LLM にも扱いやすいです。また、文章で書いておけば、AI へのスライド作成の指示としてそのまま使えます。</p>
+  <div class="point">
+    <b>いきなりスライドを作らない</b>
+    <p>話の順番や飛躍は、スライドより文章のほうが見つけやすく、直すのも楽です。書いた文章は、そのまま AI への指示になります。</p>
+  </div>
 
   <details>
-    <summary>推敲はブラウザの ChatGPT でやると利用枠の節約になる</summary>
+    <summary>全部を AI 任せにすると、なぜダメか</summary>
     <div class="body">
-      <p>この状態でブラウザの ChatGPT と会話して構成を修正していくと、利用枠の節約にもなります。ChatGPT ではチャットと Codex の利用枠が別だからです。Claude はチャットと Claude Code で利用枠を共有しているので、この効果はありません。</p>
+      <ul>
+        <li>1枚に詰め込みすぎて、持ち時間内に話しきれない。</li>
+        <li>それらしい図でも、内容とずれている。</li>
+        <li>一般論の流れになり、自分の研究の主張が見えない。</li>
+        <li>自分で考えていないので、質疑で答えられない。</li>
+      </ul>
     </div>
   </details>
 </section>
 
 <!-- ====================== 2 ====================== -->
 <section class="chapter" id="example">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 2</span><h2>通し例：研究背景スライドができるまで</h2></div>
-  <p class="intro-text">実際に作った発表「機械学習を使った組み合わせ最適化」の、研究背景のスライド1枚を例に、1章の流れを順に見ていきます。この例は「② VS Code＋Quarto」（<a href="#method-vscode">3章</a>）で作っています。</p>
+  <div class="chapter-head"><span class="chapter-num">CHAPTER 2</span><h2>通し例：研究背景スライド</h2></div>
+  <p class="intro-text">ページ先頭のスライドの「研究背景」1枚を、この流れで作りました（<a href="#method-vscode">② VS Code＋Quarto</a>）。</p>
 
-  <h3 id="example-step2">ステップ1・2：曖昧なメモを、チャットAIと推敲する</h3>
-  <p>左が最初に書いたメモです。思いついたままに書いたので、<span class="v-inline">波線</span>のように、自分の頭の中では分かっていても読む人によってどうとでも取れる書き方が残っています。このまま渡すと、AI が勝手に解釈して作ってしまいます。</p>
-  <p>そこでチャットAIに曖昧な箇所を指摘・質問させ、答えながら直したのが右のメモです。<strong>同じ番号</strong>が、曖昧だった箇所と直した箇所の対応です。</p>
+  <h3>STEP 1・2　メモをチャットAIと推敲する</h3>
+  <p><span class="v-inline">波線</span>が人によって解釈が変わる箇所、<strong>同じ番号</strong>が直した箇所です。</p>
   <blockquote class="prompt">このメモをスライド作成の指示として使いたい。曖昧で、人によって解釈が変わる箇所を挙げて、どう決めればいいか質問して。</blockquote>
 
   <div class="memo-compare">
-    <div class="code light"><div class="label"><span>推敲前のメモ</span></div><pre>1. 研究背景
+    <div class="code light"><div class="label"><span>推敲前</span></div><pre>1. 研究背景
    社会にある実問題から　組合せ最適化の概念を導入。
 
 html --
@@ -203,7 +159,7 @@ html --
 <span class="v" data-n="3">いい感じに順番に詰め込まれていく。</span>
 <span class="v" data-n="4">待ち時間的なことをやったりして単調にならないように。</span>
 --</pre></div>
-    <div class="code light"><div class="label"><span>推敲後のメモ（memo.md）</span></div><pre>対象読者：組合せ最適化やNCOを初めて学ぶ人。
+    <div class="code light"><div class="label"><span>推敲後（memo.md）</span></div><pre>対象読者：組合せ最適化やNCOを初めて学ぶ人。
 伝えたいこと：従来の解法と比較しながら、学習済みモデルを繰り返し利用するNCOの考え方を紹介する。
 公開範囲：公開済みのAttention Model・POMO・BOPOまで。独自の並列モデル・実験結果・氏名は含めない。
 
@@ -219,193 +175,155 @@ HTML --
 右側：ものの加工順。<span class="f" data-n="1">ジョブショップを例にし</span>、製品3つと機械A・B・Cを用意する。<span class="f" data-n="2">製品ごとの作業を色で区別し</span>、横軸を時間、縦軸を機械にする。
 
 <span class="f" data-n="3">初期状態では配送先と機械の時間軸だけを見せる。stepごとに経路を伸ばし、作業を時間軸へ配置する。</span><span class="f" data-n="4">作業の長さと機械の使用順は変化をつけ、同じ機械での重なりと製品内の工程順を守る。</span>
-
-<span class="f" data-n="3">最後には配送経路が倉庫へ戻り、全作業が配置される。</span>
 --
 
 続いてTSPを定義し、数理最適化とヒューリスティクス・局所探索を紹介する。</pre></div>
   </div>
-  <p>特に <span class="num">3</span> の「いい感じに詰め込まれていく」は、<strong>初期状態・step ごとの変化・最後の状態</strong>に分けて書くと、そのままアニメーションの指示になります（<a href="#animation">4章</a>）。あわせて、先頭に対象読者・伝えたいこと・公開範囲を書き足しています。</p>
+  <p>推敲後は、HTML アニメーションを<strong>どんな要素で、どう動かすか</strong>まで書いています。先頭には対象読者・伝えたいこと・公開範囲も足しました。</p>
 
-  <h3>ステップ3：メモをそのまま指示にする</h3>
-  <p>推敲したメモを <code>decks/nco-intro/memo.md</code> に保存し、VS Code の AI に頼みます。</p>
+  <h3>STEP 3　メモをそのまま指示にする</h3>
   <div class="code"><div class="label"><span>AI への指示</span></div><pre>decks/nco-intro/memo.md のスライド案で、新しいスライド「nco-intro」を作って。</pre></div>
-  <p>左のタブで「メモ」と「AI が書いた qmd」を切り替えられます。右は完成したスライドから研究背景の1枚を切り出したもので、実物のアニメーションをループ再生しています。</p>
-
-  <div class="live" id="live-example">
-    <div class="live-src">
-      <div class="tabs" role="tablist" aria-label="書き方の切り替え">
-        <button class="tab" role="tab" id="t2-memo" aria-controls="p2-memo" aria-selected="true">メモの時点での書き方</button>
-        <button class="tab" role="tab" id="t2-qmd" aria-controls="p2-qmd" aria-selected="false" tabindex="-1">qmd での書き方</button>
-      </div>
-      <div class="panel" id="p2-memo" role="tabpanel" aria-labelledby="t2-memo">
-<pre>## 1. 研究背景
-
-社会にある実問題から、組合せ最適化を導入する。
-
-HTML --
-左右に2つの問題例を出す。それぞれのアニメーションの下に「決めるもの・制約・目的」を書く。
-
-左側：配送経路。四角の中に倉庫1つと家を複数置き、倉庫から線が伸びて経路が作られる。
-
-右側：ものの加工順。ジョブショップを例にし、製品3つと機械A・B・Cを用意する。製品ごとの作業を色で区別し、横軸を時間、縦軸を機械にする。
-
-初期状態では配送先と機械の時間軸だけを見せる。stepごとに経路を伸ばし、作業を時間軸へ配置する。作業の長さと機械の使用順は変化をつけ、同じ機械での重なりと製品内の工程順を守る。
-
-最後には配送経路が倉庫へ戻り、全作業が配置される。
---</pre>
-        <p class="panel-note">decks/nco-intro/memo.md（研究背景の部分）</p>
-      </div>
-      <div class="panel" id="p2-qmd" role="tabpanel" aria-labelledby="t2-qmd" hidden>
-<pre><span class="tok-k">## 研究背景 {#background}</span>
-
-配送の順番や作業の順番など、社会には組合せを考えて決める問題が多くある。
-
-<span class="tok-c">```{=html}</span>
-<span class="tok-s">&lt;iframe src="../../html/social-problems/index.html" class="model-animation" title="配送経路とスケジューリング"&gt;&lt;/iframe&gt;</span>
-<span class="tok-c">```</span>
-
-制約を満たす組合せから、目的関数が最もよいものを選ぶ問題を**組合せ最適化**と呼ぶ。<span class="tok-k">[@dantzig1954; @jobshop]</span></pre>
-        <p class="panel-note">decks/nco-intro/slides.qmd — アニメーション本体は html/social-problems/index.html に別ファイルとして作られ、iframe で読み込んでいます。</p>
-      </div>
-    </div>
-    <div class="live-view">
-      <div class="slide-frame"><iframe src="assets/demo/background.html" title="研究背景スライドのアニメーション（ループ再生）" loading="lazy"></iframe></div>
-      <div class="live-ctrl"><span class="tag">実物のスライドをループ再生中</span><button type="button" data-toggle>❚❚ 一時停止</button></div>
-    </div>
-  </div>
-  <p>このあと修正の指示を出して仕上げます（<a href="#revise">6章</a>）。</p>
+  <p>できあがったのが<a href="#top">ページ先頭のスライド</a>です（研究背景は3枚目）。アニメーション部分は<a href="#animation">4章</a>、仕上げは<a href="#revise">5章</a>。</p>
 </section>
 
 <!-- ====================== 3 ====================== -->
 <section class="chapter" id="methods">
   <div class="chapter-head"><span class="chapter-num">CHAPTER 3</span><h2>3つの作り方</h2></div>
-  <p class="intro-text">どの方法も、ChatGPT か Claude の月額サブスクリプションに入っていることを前提にしています。</p>
+  <p class="intro-text">どれも ChatGPT か Claude の月額サブスクリプションが前提です。</p>
 
   <div class="methods">
-    <a class="method" href="#method-ppt"><span class="mn">①</span><b>PowerPoint内でAIを使う</b><small>PowerPoint のアドインから、既存スライドの修正・追加・新規作成を指示する</small><div class="tools">ChatGPT for PowerPoint / Claude for PowerPoint</div></a>
-    <a class="method rec" href="#method-vscode"><span class="mn">②</span><b>VS Code＋AIコーディングエージェント</b><small>AI にソースコードや Markdown を編集させ、PPTX・HTML・PDF を生成する</small><div class="tools">Codex / Claude Code ＋ Quarto / Marp</div></a>
-    <a class="method" href="#method-ai"><span class="mn">③</span><b>AI専用のスライド作成環境</b><small>AI との対話からスライドを生成し、専用エディタで修正した後、PowerPoint へ書き出す</small><div class="tools">ChatGPT Work / ChatGPT Slides / Claude Artifacts</div></a>
+    <a class="method" href="#method-ppt">
+      <span class="mn">①</span><b>PowerPoint内でAIを使う</b>
+      <span class="rec-h">こんな人におすすめ</span>
+      <ul class="rec-list"><li>既存の PowerPoint 資料を直したい</li><li>研究室のテンプレートを使いたい</li><li>最後はマウスで直接調整したい</li></ul>
+    </a>
+    <a class="method main" href="#method-vscode">
+      <span class="mn">②</span><b>VS Code＋AIコーディングエージェント</b>
+      <span class="rec-h">こんな人におすすめ</span>
+      <ul class="rec-list"><li>アニメーションや数式を多く使う</li><li>VS Code や Git を触ったことがある</li><li>利用枠を節約したい</li></ul>
+    </a>
+    <a class="method" href="#method-ai">
+      <span class="mn">③</span><b>AIのスライド作成機能</b>
+      <span class="rec-h">こんな人におすすめ</span>
+      <ul class="rec-list"><li>環境構築をしたくない</li><li>AI と会話するだけで作りたい</li><li>PowerPoint のファイルで渡したい</li></ul>
+    </a>
   </div>
 
   <!-- ① -->
-  <h3 id="method-ppt">① PowerPoint内でAIを使う</h3>
-  <p>PowerPoint を開き、ホームの「アドイン」から「ChatGPT」か「Claude」と検索して追加し、サブスクリプションのアカウントでログインすれば使えます（公式：<a href="https://help.openai.com/en/articles/20001242" target="_blank" rel="noopener">ChatGPT for PowerPoint</a> / <a href="https://claude.com/docs/office-agents/powerpoint" target="_blank" rel="noopener">Claude for PowerPoint</a>）。</p>
-  <div class="addin-screenshots">
-    <figure><img src="assets/img/chatgpt-powerpoint.jpg" alt="PowerPoint の右側に ChatGPT のパネルが開き、指示を入力している画面" width="905" height="899" loading="lazy"><figcaption>ChatGPT for PowerPoint</figcaption></figure>
-    <figure><img src="assets/img/claude-powerpoint.jpg" alt="PowerPoint の右側に Claude のパネルが開き、選択したスライドへの指示を入力している画面" width="905" height="509" loading="lazy"><figcaption>Claude for PowerPoint</figcaption></figure>
-  </div>
-  <div class="pros-cons">
-    <div class="pro"><b>長所</b>普通の PowerPoint 編集と AI 編集を併用でき、既存のスライドを活用しやすい。AI が作ったものも普通の図形やテキストとして編集できる。</div>
-    <div class="con"><b>短所</b>複雑な図形操作や特殊なアニメーションなどには制約がある。</div>
-  </div>
-  <p>主な用途は、既存スライドのレイアウト修正、スライドの追加、テキストの整理、テンプレートに合わせた生成です。</p>
-
-  <details>
-    <summary>ChatGPT Work に PowerPoint 本体を操作させる</summary>
-    <div class="body">
-      <p>デスクトップアプリ版の ChatGPT Work には、パソコンの画面を見ながらアプリを操作する機能があり、PowerPoint も操作の対象になります。アドインからは難しい操作でも、人がマウスでやるのと同じ手順で PowerPoint を直接操作させられます。<a href="#animation">4章</a>の HTML アドインの配置なども、この方法なら任せられる可能性があります（未検証）。</p>
-      <p>画面を見ながら操作するので、テキストを直接編集する方式に比べると時間と利用枠を多く使います。</p>
+  <div class="method-detail" id="method-ppt">
+    <h3><span class="mn">①</span>PowerPoint内でAIを使う</h3>
+    <p>PowerPoint のホーム →「アドイン」で「ChatGPT」か「Claude」を検索して追加し、サブスクリプションのアカウントでログインします（<a href="https://help.openai.com/en/articles/20001242" target="_blank" rel="noopener">ChatGPT for PowerPoint</a> / <a href="https://claude.com/docs/office-agents/powerpoint" target="_blank" rel="noopener">Claude for PowerPoint</a>）。</p>
+    <div class="addin-screenshots">
+      <figure><img src="assets/img/chatgpt-powerpoint.jpg" alt="PowerPoint の右側に ChatGPT のパネルが開き、指示を入力している画面" width="905" height="899" loading="lazy"><figcaption>ChatGPT for PowerPoint</figcaption></figure>
+      <figure><img src="assets/img/claude-powerpoint.jpg" alt="PowerPoint の右側に Claude のパネルが開き、選択したスライドへの指示を入力している画面" width="905" height="509" loading="lazy"><figcaption>Claude for PowerPoint</figcaption></figure>
     </div>
-  </details>
+    <div class="pros-cons">
+      <div class="pro"><b>長所</b>普段の編集と AI 編集を併用できる。AI が作ったものも普通の図形・テキストとして直せる。</div>
+      <div class="con"><b>短所</b>複雑な図形操作や、ステップ式のアニメーションは苦手。</div>
+    </div>
+  </div>
 
   <!-- ② -->
-  <h3 id="method-vscode">② VS Code＋AIコーディングエージェント</h3>
-  <p>VS Code や GitHub を使ったことがある人におすすめの方法です。Markdown からスライドを作るツール（Quarto / Marp）を使います。<a href="#example">2章の通し例</a>はこの方法で作っています。</p>
-  <ul>
-    <li>qmd・HTML・CSS などのテキストを編集するだけなので、AI の得意な文章の編集で完結する。画像をやり取りしなくてよく、利用枠の消費も少ない。</li>
-    <li>細かい重なりや座標の微調整は多少苦手。ただ、重なりやはみ出しはスクリプトで自動検査させれば AI が自分で直せる（<a href="#revise">6章</a>）。</li>
-    <li>HTML のアニメーション以外は、qmd ファイルを自分で直接直せばよいので簡単。Git で差分を管理でき、前の版に戻すのも簡単。</li>
-  </ul>
-  <div class="pros-cons">
-    <div class="pro"><b>Quarto（推奨）</b>スライドの段階表示と HTML アニメーションのステップ送りを連動させやすい。研究発表でアニメーションを使うならこちら。</div>
-    <div class="neutral"><b>Marp</b>軽量で、シンプルなスライドを素早く作るのに向く。ステップ式のアニメーションを組み込むには追加の実装が必要。</div>
-  </div>
-  <p>Quarto で HTML アニメーションを埋め込んだスライドを作る基盤を、<a href="https://github.com/murata-lab/quarto-html" target="_blank" rel="noopener">murata-lab/quarto-html</a> で公開しています。1つのコマンドで、オフラインでも見られる単一の HTML と PDF を出力し、ビルドのたびにはみ出しや重なりを自動検査します（<a href="https://murata-lab.github.io/quarto-html/nco-intro.html" target="_blank" rel="noopener">完成したスライド</a>）。</p>
+  <div class="method-detail" id="method-vscode">
+    <h3><span class="mn">②</span>VS Code＋AIコーディングエージェント</h3>
+    <p>VS Code 上の <b>Codex</b> か <b>Claude Code</b> に qmd（Markdown）を書かせ、<b>Quarto</b> で HTML と PDF にします。<a href="#example">2章の通し例</a>はこの方法です。</p>
+    <div class="pros-cons">
+      <div class="pro"><b>長所</b>テキストの編集だけで完結し、AI が得意で利用枠も少ない。文言は qmd を自分で直せばよく、Git で前の版にも戻せる。</div>
+      <div class="con"><b>短所</b>座標の微調整は苦手。ただし、はみ出しや重なりは自動検査させれば AI が自分で直す（<a href="#revise">5章</a>）。</div>
+    </div>
+    <p>そのまま使える基盤を <a href="https://github.com/murata-lab/quarto-html" target="_blank" rel="noopener">murata-lab/quarto-html</a> で公開しています。1コマンドでオフラインでも見られる HTML と PDF を出力し、ビルドのたびにはみ出しや重なりを自動検査します。</p>
 
-  <details>
-    <summary>始め方</summary>
-    <div class="body">
-      <ol class="steps-list">
-        <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> をインストールし、Codex か Claude Code の拡張機能を入れてサブスクリプションのアカウントでログインする</li>
-        <li><a href="https://quarto.org/" target="_blank" rel="noopener">Quarto</a> と <a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> をインストールする</li>
-        <li>リポジトリを clone して VS Code で開き、初回だけ準備のコマンドを実行する（AI に「README の準備をやって」と頼んでもよい）
-          <div class="code"><div class="label"><span>ターミナル</span></div><pre>git clone https://github.com/murata-lab/quarto-html.git
+    <h4>qmd の書き方</h4>
+    <div class="qmd-demo" id="qmd-demo">
+      <div class="qmd-editor">
+        <div class="qmd-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="file">slides.qmd</span><span class="build-state" aria-hidden="true">保存済み</span></div>
+        <pre class="qmd-code" aria-label="slides.qmd の例：見出し、本文、HTMLの埋め込み、引用の順に書く"></pre>
+      </div>
+      <div class="qmd-view">
+        <div class="slide-frame"><iframe src="assets/demo/background.html?build" title="qmd に書いた分だけ表示される研究背景スライド" loading="lazy" tabindex="-1"></iframe></div>
+        <ol class="qmd-legend" aria-hidden="true">
+          <li data-level="1">見出し</li>
+          <li data-level="2">本文</li>
+          <li data-level="3">HTML（図）</li>
+          <li data-level="4">引用</li>
+        </ol>
+      </div>
+    </div>
+    <ul class="tight">
+      <li><code>##</code> が1枚のスライド。箇条書きや太字は普通の Markdown と同じ。</li>
+      <li><code>```{=html}</code> の中に HTML を書くと、そのまま埋め込まれる。</li>
+      <li><code>[@キー]</code> で引用すると、ページ下に書誌情報が自動で入る。</li>
+      <li>基本は AI が書く。文言を少し直すくらいなら、自分で直接編集するほうが早い。</li>
+    </ul>
+
+    <details>
+      <summary>始め方</summary>
+      <div class="body">
+        <ol class="steps-list">
+          <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>・<a href="https://quarto.org/" target="_blank" rel="noopener">Quarto</a>・<a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> をインストールする</li>
+          <li>VS Code に Codex か Claude Code の拡張機能を入れ、サブスクリプションのアカウントでログインする</li>
+          <li>リポジトリを clone して VS Code で開き、初回だけ準備のコマンドを実行する（AI に「README の準備をやって」と頼んでもよい）
+            <div class="code"><div class="label"><span>ターミナル</span></div><pre>git clone https://github.com/murata-lab/quarto-html.git
 uv sync
 uv run playwright install chromium</pre></div></li>
-        <li>推敲したメモを AI に渡して、スライドを作らせる
-          <div class="code"><div class="label"><span>AI への指示</span></div><pre>このスライド案で、新しいスライド「my-talk」を作って。
+          <li>推敲したメモを AI に渡す
+            <div class="code"><div class="label"><span>AI への指示</span></div><pre>このスライド案で、新しいスライド「my-talk」を作って。
 （ここに推敲したメモを貼る）</pre></div></li>
-        <li>AI が返す <code>output/my-talk.html</code> と <code>output/my-talk.pdf</code> を開いて確認する</li>
-      </ol>
-      <p>情報が足りない場合や説明の流れに問題がある場合は、作り始める前に AI が質問してきます（リポジトリ内の AI 向けルールにそう書いてあるため。<a href="#criteria">6章</a>）。</p>
-    </div>
-  </details>
+          <li>できあがった <code>output/my-talk.html</code> と <code>output/my-talk.pdf</code> を開いて確認する</li>
+        </ol>
+        <p>情報が足りない場合や説明の流れに問題がある場合は、作り始める前に AI が質問してきます。</p>
+      </div>
+    </details>
 
-  <details>
-    <summary>qmd の書き方（最小限）</summary>
-    <div class="body">
-      <div class="code"><div class="label"><span>slides.qmd</span></div><pre><span class="tok-k">## 研究背景</span>
-
-配送の順番や作業の順番など、社会には組合せを考えて決める問題が多くある。
-
-<span class="tok-c">```{=html}</span>
-<span class="tok-s">&lt;iframe src="../../html/social-problems/index.html" title="配送経路とスケジューリング"&gt;&lt;/iframe&gt;</span>
-<span class="tok-c">```</span>
-
-制約を満たす組合せから、目的関数が最もよいものを選ぶ問題を**組合せ最適化**と呼ぶ。<span class="tok-k">[@dantzig1954]</span></pre></div>
-      <ul>
-        <li><code>#</code> が章、<code>##</code> が1枚のスライド。箇条書きや太字は普通の Markdown と同じ。</li>
-        <li><code>[@キー]</code> で引用すると、ページ下に書誌情報、最後に参考文献ページが自動で入る。</li>
-        <li>基本は AI が書くので覚える必要はない。文言を少し直す程度なら自分で qmd を直接編集するほうが早い。</li>
-      </ul>
-    </div>
-  </details>
-
-  <details>
-    <summary>研究の情報を外部に持ち出せない場合</summary>
-    <div class="body">
-      <p>未公開データなど外部に出せない情報を扱う場合は、②のやり方で、ローカルLLM を <a href="https://opencode.ai/" target="_blank" rel="noopener">opencode</a> などから呼び出せば同じ進め方ができます。</p>
-      <p>opencode は、ターミナルで動く AI コーディングエージェントです。クラウドのモデルだけでなく、自分のパソコンや研究室のサーバーで動かすローカルLLM（Ollama など）にも接続できます。ローカルLLM なら、メモや qmd が外部に送られません。</p>
-      <p>ただし、クラウドのモデルに比べると性能は落ちます。アニメーションのような複雑な HTML は一度でうまく作れないことが多いので、<a href="#revise">6章</a>の確認基準とループをより丁寧に用意しておくと安定します。</p>
-    </div>
-  </details>
+    <details>
+      <summary>研究の情報を外部に持ち出せない場合</summary>
+      <div class="body">
+        <p><a href="https://opencode.ai/" target="_blank" rel="noopener">opencode</a> からローカルLLM（Ollama など）を呼び出せば、メモや qmd を外部に送らずに同じ進め方ができます。性能はクラウドのモデルより落ちるので、<a href="#revise">5章</a>の確認基準を丁寧に用意しておくと安定します。</p>
+      </div>
+    </details>
+  </div>
 
   <!-- ③ -->
-  <h3 id="method-ai">③ AI専用のスライド作成環境</h3>
-  <p>AI との対話からスライドを生成し、専用エディタで修正した後、PowerPoint へ書き出す方法です。VS Code などの環境を用意せず、自然言語での修正を中心に作れるのが利点です。</p>
-  <dl class="tool-list">
-    <dt>ChatGPT Work</dt>
-    <dd>スライド用のフォルダを作り、Work でプロジェクトを作成してそのフォルダを指定します。作業結果はそのフォルダに保存されます。使いたい PowerPoint のテンプレートがあれば、フォルダに入れて「これを参照して」と書けば使ってくれます。パソコン内のフォルダを直接編集するのはデスクトップアプリ版のみです。</dd>
-    <dt>ChatGPT Slides</dt>
-    <dd>会話や資料からスライドを生成し、テキスト・図形・表などを専用のエディタで編集できます。完成したら PPTX に書き出して PowerPoint で開けます。</dd>
-    <dt>Claude Artifacts（Slides）</dt>
-    <dd>claude.ai で、会話や資料からスライドを作成し、そのまま編集・発表・PowerPoint への書き出しができます。</dd>
-  </dl>
+  <div class="method-detail" id="method-ai">
+    <h3><span class="mn">③</span>AIのスライド作成機能</h3>
+    <p>AI との会話からスライドを作り、専用のエディタで直して PowerPoint に書き出します。環境構築が要りません。</p>
+    <dl class="tool-list">
+      <dt>ChatGPT Slides</dt>
+      <dd>会話や資料からスライドを生成し、テキスト・図形・表を専用エディタで編集。PPTX に書き出せます。</dd>
+      <dt>Claude Artifacts（Slides）</dt>
+      <dd>claude.ai で会話や資料からスライドを作り、そのまま編集・発表・PowerPoint への書き出しができます。</dd>
+      <dt>ChatGPT Work</dt>
+      <dd>スライド用のフォルダを指定してプロジェクトを作ると、結果がそのフォルダに保存されます。テンプレートの PPTX をフォルダに入れて「これを参照して」と書けば使ってくれます。</dd>
+    </dl>
+  </div>
 </section>
 
 <!-- ====================== 4 ====================== -->
 <section class="chapter" id="animation">
   <div class="chapter-head"><span class="chapter-num">CHAPTER 4</span><h2>動くHTMLアニメーションを入れる</h2></div>
-  <p class="intro-text">ステップごとに動く HTML アニメーションをスライドに入れる場合、方式によって相性が違います。</p>
+  <p class="intro-text">研究発表で効くのは、<strong>→ を押すたびにアニメーションが1ステップ進み、最後のステップの次でスライドが進む</strong>操作です。</p>
 
-  <div class="table-wrap"><table>
-    <thead><tr><th></th><th>Quarto（②）</th><th>PowerPoint（①・③）</th><th>Marp（②）</th></tr></thead>
+  <div class="table-wrap"><table class="compare">
+    <thead><tr><th></th><th>Quarto（②）</th><th>PowerPoint（①・③）</th></tr></thead>
     <tbody>
-      <tr><th>埋め込み方法</th><td>iframe で埋め込める</td><td>HTML を表示するアドインが必要</td><td>設定で HTML を許可する</td></tr>
-      <tr><th>スライド送りとの連動</th><td>連動させやすい</td><td>実装と動作確認が必要</td><td>追加の実装が必要</td></tr>
+      <tr><th>埋め込み</th><td class="good">iframe で埋め込める</td><td>HTML を表示するアドインが必要</td></tr>
+      <tr><th>スライド送りとの連動</th><td class="good">連動させやすい</td><td>実装と動作確認が必要</td></tr>
     </tbody>
   </table></div>
-  <p>研究発表でアニメーションを多用するなら、Quarto がいちばん扱いやすいです。大事なのは、HTML を埋め込めるかどうかより、<strong>スライド送りの操作とアニメーションのステップ送りを一体にできるか</strong>です。→ を押すたびに経路が1本ずつ伸び、最後のステップのあとに押すと次のスライドへ進む、という操作です。</p>
 
   <h3>作り方の例</h3>
-  <p><a href="#example">2章の通し例</a>がそのまま例になっています。メモの <code>HTML -- … --</code> で囲んだ部分がアニメーションの指示で、<strong>初期状態・各ステップ・最後の状態</strong>（色付きの行）を書いておくと、AI がステップ送りに対応したアニメーションを作ります。</p>
+  <p>大ざっぱな指示でできた HTML を後から直していくと、かえって時間がかかります。<strong>文章の時点でかなり詳しく書いてしまう</strong>のが近道です。書くのは次の2つです。</p>
+  <div class="anim-grid">
+    <div class="anim-card"><span class="h">要素</span><b>何を、どこに置くか</b><ul><li>左右・上下の配置</li><li>置くもの（倉庫と家、機械 A・B・C）</li><li>軸・ラベル・色の意味</li></ul></div>
+    <div class="anim-card move"><span class="h">動き</span><b>→ を押すと何が起きるか</b><ul><li>最初に見せるもの</li><li>1ステップごとの変化</li><li>守るルール（同じ機械で重ならない など）</li></ul></div>
+  </div>
+  <p><a href="#example">2章のメモ</a>の <code>HTML -- … --</code> で囲んだ部分が、実際の指示です。</p>
 
   <div class="live" id="live-animation">
     <div class="live-src">
       <div class="tabs" role="tablist" aria-label="書き方の切り替え">
-        <button class="tab" role="tab" id="t4-memo" aria-controls="p4-memo" aria-selected="true">メモの時点での書き方</button>
-        <button class="tab" role="tab" id="t4-qmd" aria-controls="p4-qmd" aria-selected="false" tabindex="-1">qmd での書き方</button>
+        <button class="tab" role="tab" id="t4-memo" aria-controls="p4-memo" aria-selected="true">メモ</button>
+        <button class="tab" role="tab" id="t4-qmd" aria-controls="p4-qmd" aria-selected="false" tabindex="-1">qmd</button>
       </div>
       <div class="panel" id="p4-memo" role="tabpanel" aria-labelledby="t4-memo">
 <pre>HTML --
@@ -415,11 +333,9 @@ uv run playwright install chromium</pre></div></li>
 
 右側：ものの加工順。ジョブショップを例にし、製品3つと機械A・B・Cを用意する。製品ごとの作業を色で区別し、横軸を時間、縦軸を機械にする。
 
-<span class="hl-add">初期状態では配送先と機械の時間軸だけを見せる。</span><span class="hl-add">stepごとに経路を伸ばし、作業を時間軸へ配置する。</span>作業の長さと機械の使用順は変化をつけ、同じ機械での重なりと製品内の工程順を守る。
-
-<span class="hl-add">最後には配送経路が倉庫へ戻り、全作業が配置される。</span>
+初期状態では配送先と機械の時間軸だけを見せる。stepごとに経路を伸ばし、作業を時間軸へ配置する。作業の長さと機械の使用順は変化をつけ、同じ機械での重なりと製品内の工程順を守る。
 --</pre>
-        <p class="panel-note">初期状態 → step ごとの変化 → 最後の状態 の3つを書くのがコツ</p>
+        <p class="panel-note">decks/nco-intro/memo.md（HTML の部分）</p>
       </div>
       <div class="panel" id="p4-qmd" role="tabpanel" aria-labelledby="t4-qmd" hidden>
 <pre><span class="tok-k">## 研究背景 {#background}</span>
@@ -431,20 +347,24 @@ uv run playwright install chromium</pre></div></li>
 <span class="tok-c">```</span>
 
 制約を満たす組合せから、目的関数が最もよいものを選ぶ問題を**組合せ最適化**と呼ぶ。<span class="tok-k">[@dantzig1954; @jobshop]</span></pre>
-        <p class="panel-note">qmd 側は iframe を1行置くだけ。動きは html/social-problems/ の中に書かれる。</p>
+        <p class="panel-note">qmd 側は iframe を1行置くだけ。動きは html/social-problems/ に別ファイルで書かれる。</p>
       </div>
     </div>
     <div class="live-view">
       <div class="slide-frame"><iframe src="assets/demo/background.html" title="研究背景スライドのアニメーション（ループ再生）" loading="lazy"></iframe></div>
-      <div class="live-ctrl"><span class="tag">ループ再生中（発表時は → で1ステップずつ）</span><button type="button" data-toggle>❚❚ 一時停止</button></div>
+      <div class="live-ctrl"><span class="tag">ループ再生中（発表では → で1ステップずつ）</span><button type="button" data-toggle>❚❚ 一時停止</button></div>
     </div>
+  </div>
+
+  <div class="point tip">
+    <b>打ち込むのが大変なら</b>
+    <p>音声入力で話して指示したり、紙に図と動きを描いて写真を撮り、AI に送ったりすると楽です。</p>
   </div>
 
   <details>
     <summary>スライド送りとアニメーションを連動させる仕組み</summary>
     <div class="body">
-      <p>Quarto 標準の Reveal.js でスライドを作る場合は、段階表示（fragment）が出たときのイベント（<code>fragmentshown</code> / <code>fragmenthidden</code>）を受け取り、iframe の中のアニメーションへステップを伝えます。</p>
-      <p>quarto-html リポジトリでは、Reveal.js の標準の操作を使わず、小さな専用プレイヤーがステップを管理しています。アニメーション側は、次の形で「ステップ数」と「そのステップでの描画」だけを書きます。</p>
+      <p>quarto-html では小さな専用プレイヤーがステップを管理し、アニメーション側は「ステップ数」と「そのステップでの描画」だけを書きます。</p>
       <div class="code"><div class="label"><span>html/&lt;図名&gt;/main.mjs</span></div><pre>registerAnimation({
   steps: 2,
   render(step) {
@@ -452,11 +372,11 @@ uv run playwright install chromium</pre></div></li>
   }
 });</pre></div>
       <ul>
-        <li>親のプレイヤーが ← / → でステップを進め、最後のステップを過ぎると次のページへ進む。</li>
-        <li><code>render</code> はステップ番号だけから描画を決めるので、戻る操作や途中のステップへの直接移動にも対応できる。</li>
-        <li>PDF には各ページの最後のステップの状態が出力される。</li>
+        <li>← / → でステップが進み、最後のステップを過ぎると次のページへ。</li>
+        <li>ステップ番号だけで描画が決まるので、戻る操作や途中への移動にも対応できる。</li>
+        <li>PDF には各ページの最後のステップが出力される。</li>
       </ul>
-      <p>新しいアニメーションは <code>uv run scripts/slides.py animation &lt;図名&gt;</code> で雛形を作れます。</p>
+      <p>雛形は <code>uv run scripts/slides.py animation &lt;図名&gt;</code> で作れます。</p>
     </div>
   </details>
 
@@ -464,78 +384,45 @@ uv run playwright install chromium</pre></div></li>
     <summary>PowerPoint に HTML を埋め込む場合の注意</summary>
     <div class="body">
       <ul>
-        <li>HTML の表示には<a href="https://learn.microsoft.com/office/dev/add-ins/design/content-add-ins" target="_blank" rel="noopener">コンテンツアドイン</a>を使います。Microsoft 製の Web Viewer アドインは2024年に提供が終わっているので、別の対応アドインを使うか、自分で Office アドインを作る必要があります。使うアドインによって、動かせる HTML やライブラリに制約があります。</li>
-        <li>HTML 側をクリックして進めるだけなら比較的簡単です。PowerPoint の → キーとアニメーションの進行を一体にするには、実装と動作確認が必要です。</li>
-        <li>Office アドインは Mac でも使えますが、コンテンツアドインの動作には Windows との違いがあります。発表に使うパソコンで事前に確認してください。</li>
+        <li>表示には<a href="https://learn.microsoft.com/office/dev/add-ins/design/content-add-ins" target="_blank" rel="noopener">コンテンツアドイン</a>が必要。Microsoft 製の Web Viewer は2024年に提供終了しているので、別のアドインを使うか自作する。</li>
+        <li>HTML 側をクリックして進めるだけなら簡単。→ キーと連動させるには実装と動作確認が必要。</li>
+        <li>Mac と Windows で動作に違いがあるので、発表に使うパソコンで事前に確認する。</li>
       </ul>
     </div>
   </details>
 </section>
 
 <!-- ====================== 5 ====================== -->
-<section class="chapter" id="choose">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 5</span><h2>どれを選ぶか</h2></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>やりたいこと</th><th>おすすめ</th></tr></thead>
-    <tbody>
-      <tr><td>既存の PowerPoint 資料を AI で直したい</td><td><a href="#method-ppt">① PowerPoint＋アドイン</a></td></tr>
-      <tr><td>研究発表で数式やアニメーションを多く使いたい</td><td><a href="#method-vscode"><strong>② VS Code＋Quarto</strong></a></td></tr>
-      <tr><td>Markdown でシンプルなスライドを素早く作りたい</td><td><a href="#method-vscode">② VS Code＋Marp</a></td></tr>
-      <tr><td>コードを触らず、AI と会話しながら完成させたい</td><td><a href="#method-ai">③ ChatGPT Work / Slides / Claude Artifacts</a></td></tr>
-    </tbody>
-  </table></div>
-  <p>①と②は組み合わせることもできます。たとえば②でスライドを作って PowerPoint に書き出し、最後に①のアドインで部分的に直す、という使い方です。</p>
-
-  <details>
-    <summary>もう少し細かい比較</summary>
-    <div class="body">
-      <div class="table-wrap"><table>
-        <thead><tr><th>方式</th><th class="c">既存PPTXの修正</th><th class="c">新規作成</th><th class="c">複雑な図・アニメーション</th><th class="c">マウスでのレイアウト調整</th><th class="c">配布先での再現性</th></tr></thead>
-        <tbody>
-          <tr><td>① PowerPoint＋アドイン</td><td class="c mark">◎</td><td class="c mark">○</td><td class="c mark">△</td><td class="c mark">◎</td><td class="c">△（HTMLを埋め込んだ場合）</td></tr>
-          <tr><td>② Quarto</td><td class="c mark">△</td><td class="c mark">◎</td><td class="c">◎（HTML）</td><td class="c mark">△</td><td class="c mark">◎</td></tr>
-          <tr><td>② Marp</td><td class="c mark">△</td><td class="c mark">◎</td><td class="c">○（HTML）</td><td class="c mark">△</td><td class="c mark">○</td></tr>
-          <tr><td>③ Work / Slides / Artifacts</td><td class="c">△〜○</td><td class="c mark">◎</td><td class="c mark">○</td><td class="c mark">○</td><td class="c mark">○</td></tr>
-        </tbody>
-      </table></div>
-      <p>機能の仕組みから見た目安です。</p>
-    </div>
-  </details>
-</section>
-
-<!-- ====================== 6 ====================== -->
 <section class="chapter" id="revise">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 6</span><h2>仕上げ：修正指示のコツ</h2></div>
-  <p class="intro-text">最初に生成されたスライドが、そのまま使えることはまずありません。仕上げは「修正の指示を出す → 直ったか確認する」の繰り返しです。これを毎回人が目で見てやると、時間がかかるうえに見落としも出ます。そこで、<strong>先に確認基準を作っておき、確認と修正の繰り返しを AI 自身に回させます</strong>。</p>
+  <div class="chapter-head"><span class="chapter-num">CHAPTER 5</span><h2>仕上げ：修正指示のコツ</h2></div>
+  <p class="intro-text">一発で使えるスライドはまず出てきません。<strong>確認基準を先に作り、確認と修正の繰り返しを AI 自身に回させます</strong>。</p>
 
-  <div class="loop"><span>修正する</span><i>→</i><span>ビルド</span><i>→</i><span>自動検査</span><i>→</i><span>画像を見て確認</span><i>→</i><span>報告</span><div class="back">↺ 検査が通らなければ、AI が自分で原因を直して繰り返す</div></div>
+  <div class="loop"><span>修正</span><i>→</i><span>ビルド</span><i>→</i><span>自動検査</span><i>→</i><span>画像で確認</span><i>→</i><span>報告</span><div class="back">↺ 通らなければ AI が自分で直して繰り返す</div></div>
 
-  <h3>6-1. 人が見るのは「中身」だけにする</h3>
+  <h3>人が見るのは「中身」だけ</h3>
   <div class="who-grid">
-    <div class="who-card script"><span class="h">スクリプトが判定</span><b>機械的に判定できるもの</b><ul><li>文字のはみ出し</li><li>要素の重なり</li><li>文字が小さすぎる</li></ul></div>
-    <div class="who-card eye"><span class="h">AI が画像を見て判定</span><b>見れば判定できるもの</b><ul><li>図と本文が対応していない</li><li>余白のバランスが悪い</li><li>色が見分けにくい</li></ul></div>
-    <div class="who-card me"><span class="h">自分が判定</span><b>中身の判断が必要なもの</b><ul><li>説明が正しいか</li><li>話の流れが自然か</li><li>時間内に話せるか</li></ul></div>
+    <div class="who-card script"><span class="h">スクリプト</span><ul><li>文字のはみ出し</li><li>要素の重なり</li><li>文字が小さすぎる</li></ul></div>
+    <div class="who-card eye"><span class="h">AI が画像を見る</span><ul><li>図と本文のずれ</li><li>余白のバランス</li><li>色の見分けにくさ</li></ul></div>
+    <div class="who-card me"><span class="h">自分</span><ul><li>説明が正しいか</li><li>話の流れが自然か</li><li>時間内に話せるか</li></ul></div>
   </div>
-  <p>1つ目と2つ目は、基準さえ書いておけば AI が自分で確認して直せます。quarto-html では、ビルドのたびにはみ出し・重なり・ブラウザのエラーなどを自動検査し、失敗すると AI が通るまで直します。人は3つ目に集中できます。</p>
 
-  <h3 id="criteria">6-2. 基準を育てて、AI が読むファイルに書いておく</h3>
-  <p><strong>同じ指摘を2回したら、基準にする</strong>のがコツです。同じ種類のミスが別のスライドでも起きたら、確認基準として書き足させます。発表を重ねるほど最初の生成の質が上がり、修正の回数が減っていきます。</p>
+  <h3 id="criteria">同じようなミスが続くなら、基準にする</h3>
+  <p>AI が読むファイルに基準として書き足していくと、発表を重ねるほど最初の生成の質が上がります。</p>
   <div class="code"><div class="label"><span>AI への指示</span></div><pre>今回の修正内容を、今後も守るべきルールとして AGENTS.md に追記して。
 機械的に検査できるものは、ビルド時の検査にも追加して。</pre></div>
   <div class="table-wrap"><table>
     <thead><tr><th>ファイル</th><th>書くこと</th></tr></thead>
     <tbody>
-      <tr><td><code>AGENTS.md</code></td><td>どの発表にも共通するルール。作業の順番、使ってよいコマンド、完了の条件</td></tr>
-      <tr><td>スキル（<code>.agents/skills/…/SKILL.md</code> など）</td><td>スライド作成専用の、より細かい手順と基準</td></tr>
-      <tr><td><code>decks/&lt;名前&gt;/memo.md</code></td><td>その発表だけの基準。対象読者、公開範囲、デザインの指示、例外として認めた重なり、原典の確認記録</td></tr>
+      <tr><td><code>AGENTS.md</code></td><td>どの発表にも共通するルール（作業の順番・使うコマンド・完了の条件）</td></tr>
+      <tr><td><code>.agents/skills/…/SKILL.md</code></td><td>スライド作成専用の細かい手順と基準</td></tr>
+      <tr><td><code>decks/&lt;名前&gt;/memo.md</code></td><td>その発表だけの基準（対象読者・公開範囲・例外として認めた重なり）</td></tr>
     </tbody>
   </table></div>
-  <p>Codex は <code>AGENTS.md</code> を自動で読みます。Claude Code は <code>CLAUDE.md</code> を読むので、<code>CLAUDE.md</code> に <code>@AGENTS.md</code> と1行書いておくと、両方で同じルールを使えます。</p>
+  <p class="note">Claude Code は <code>CLAUDE.md</code> を読むので、<code>CLAUDE.md</code> に <code>@AGENTS.md</code> と1行書けば Codex と同じルールを使えます。</p>
 
   <details>
     <summary>AGENTS.md とスキルの例</summary>
     <div class="body">
-      <p>quarto-html リポジトリの <code>AGENTS.md</code> は、次の数行だけです。細かい手順はスキルのファイルに分けています。</p>
       <div class="code"><div class="label"><span>AGENTS.md</span></div><pre># Quartoスライド制作
 
 このリポジトリのスライド制作では .agents/skills/quarto-slides/SKILL.md を読む。
@@ -543,15 +430,9 @@ uv run playwright install chromium</pre></div></li>
 スクリプトは uv run。npmは使わない。出力HTML/PDFを直接編集しない。</pre></div>
       <div class="code"><div class="label"><span>.agents/skills/quarto-slides/SKILL.md（抜粋）</span></div><pre>- スライド案の対象読者・結論・説明順・必要なデータを確認する。
   情報が不足する、流れが不自然、公開範囲が不明なら、質問し、回答前にスライドを作り始めない。
-- 本文は最小限とし、発表者ノートを増やさない。
-  引用は [@key]、出典を reference.bib に登録する。原典で事実・実験条件を確認する。
 - アニメーションの render は任意のstepへ直接移動・巻き戻しできる決定的な描画にする。
-  タイマーで勝手に進めない。
 - 編集後は必ずビルドを実行し、HTMLとPDFの両方を出力する。失敗を修正して再実行する。
-  自動検査だけに頼らず各ページ画像とPDFを見て、文字・図・フッターの重なりや欠けを確認する。
-- 完了報告はユーザーがすぐ見られるHTMLとPDFのリンクを短く示す。
-  実行できなかった検証は明記する。</pre></div>
-      <p>「足りなければ質問してから作る」と「確認できなかったことは報告に書く」が特に効きます。</p>
+- 完了報告はHTMLとPDFのリンクを短く示す。実行できなかった検証は明記する。</pre></div>
     </div>
   </details>
 
@@ -559,100 +440,73 @@ uv run playwright install chromium</pre></div></li>
     <summary>ループがうまく回らないとき</summary>
     <div class="body">
       <ul>
-        <li><strong>同じ修正を行ったり来たりする</strong>：基準同士が矛盾していることが多いです。どちらを優先するかを書くか、スライドを分けることを許可します。</li>
-        <li><strong>基準が曖昧で終わらない</strong>：「見やすく」は判定できません。「本文〇pt以上、1枚〇行以内」のように数値にします。</li>
-        <li><strong>意図した重なりまで直そうとする</strong>：意図した重なりは、例外としてメモに明記します。</li>
-        <li><strong>いつまでも終わらない</strong>：「3回直しても通らなければ、止めて状況を報告して」と上限を決めておきます。</li>
+        <li><strong>行ったり来たりする</strong>：基準同士の矛盾。どちらを優先するか書く。</li>
+        <li><strong>終わらない</strong>：「見やすく」は判定できない。「本文〇pt以上」のように数値にし、「3回で通らなければ止めて報告」と上限も決める。</li>
+        <li><strong>意図した重なりまで直す</strong>：例外としてメモに明記する。</li>
       </ul>
     </div>
   </details>
 
-  <h3>6-3. 修正指示の書き方</h3>
-  <p>ループで直らない部分（中身やデザインの好み）は、<strong>どのスライドの、どの要素を、どう直すか</strong>を書いて指示します。</p>
-  <div class="table-wrap"><table>
-    <thead><tr><th>悪い指示</th><th>良い指示</th></tr></thead>
+  <h3>修正指示は「どこを・どう」</h3>
+  <div class="table-wrap"><table class="badgood">
+    <thead><tr><th>✕ 悪い指示</th><th>○ 良い指示</th></tr></thead>
     <tbody>
       <tr><td>いい感じにして</td><td>3枚目の右の図を、左の本文と上端をそろえて</td></tr>
-      <tr><td>アニメーションを直して</td><td>右のスケジュールで、機械Bに2つの作業が同時に入っている。同じ機械で作業が重ならないようにして</td></tr>
-      <tr><td>デザインを変えて</td><td>図の配置と動きは変えずに、表紙・章扉・見出し・表・引用の外観だけ青系にして</td></tr>
+      <tr><td>アニメーションを直して</td><td>機械Bに2つの作業が同時に入っている。同じ機械で作業が重ならないようにして</td></tr>
+      <tr><td>デザインを変えて</td><td>図の配置と動きは変えずに、見出し・表・引用の外観だけ青系にして</td></tr>
     </tbody>
   </table></div>
-
-
   <ul class="tight">
-    <li><strong>変えてほしくないものを明示する</strong>：AI は頼んでいない部分まで「ついでに」直すことがある。「図の配置・動きは維持して、外観だけ変えて」のように書く。</li>
-    <li><strong>理由も添える</strong>：「プロジェクターが暗いので、薄い背景の上の文字は濃くして」のように書くと、他の箇所にも同じ考え方を当てはめてくれる。</li>
-    <li><strong>中身の修正はメモに戻ってから</strong>：先に <code>memo.md</code> を直し「メモに合わせてスライドを更新して」と頼む。ずれると AI が古いメモに戻してしまうことがある。</li>
-    <li><strong>一度に頼むのは3〜5個まで</strong>。誤字や数px の位置調整は、自分で直接直すほうが早い。</li>
-    <li><strong>数値や引用は自分で原典を確認する</strong>。AI は自信ありげに間違えることがある。</li>
+    <li><strong>変えてほしくないものを書く</strong>：AI は頼んでいない部分も「ついでに」直す。</li>
+    <li><strong>中身の修正はメモから</strong>：先に <code>memo.md</code> を直し「メモに合わせて更新して」と頼む。</li>
+    <li><strong>数値や引用は自分で原典を確認する</strong>：AI は自信ありげに間違える。</li>
   </ul>
-
-  <details>
-    <summary>よく使う修正指示の例</summary>
-    <div class="body">
-      <div class="code"><div class="label"><span>修正指示の例</span></div><pre><span class="tok-c"># レイアウト</span>
-〇枚目の図を左右2列にして、左に図、右に箇条書きを置いて。
-引用がページ下の線と重なっている。引用を線より上に出して。
-
-<span class="tok-c"># 文字量</span>
-〇枚目は情報が多い。言いたいことを1つに絞って、残りは次のページに分けて。
-
-<span class="tok-c"># アニメーション</span>
-〇枚目のアニメーションを、最初は〇〇だけ見せて、→ で1つずつ△△が出るようにして。
-戻る操作をしたときに、前のステップの状態に正しく戻るか確認して。
-
-<span class="tok-c"># 全体</span>
-全ページを見て、本文と図の内容が合っていない箇所を挙げて。直す前に一覧を見せて。
-対象読者を学部生として、説明なしで使っている専門用語を挙げて。</pre></div>
-    </div>
-  </details>
 </section>
 
-<!-- ====================== 7 ====================== -->
+<!-- ====================== 6 ====================== -->
 <section class="chapter" id="faq">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 7</span><h2>よくある質問</h2></div>
+  <div class="chapter-head"><span class="chapter-num">CHAPTER 6</span><h2>よくある質問</h2></div>
   <dl class="faq">
-    <dt>図やグラフはどう入れる？ 数式は？</dt>
-    <dd>全部 AI に頼めば解決します。データのファイルを渡して「このデータで〇〇のグラフを作って」、数式は「〇〇の式を入れて」と頼むだけです。</dd>
-    <dt>作ったスライドを共同研究者や先生に共有したい</dt>
-    <dd>②なら HTML と PDF が出力されるので、PDF を送るか、GitHub Pages で公開します（公開範囲に注意）。①・③は PowerPoint のファイルとして共有できます。</dd>
+    <dt>図やグラフ、数式はどう入れる？</dt>
+    <dd>AI に頼むだけです。データのファイルを渡して「このデータで〇〇のグラフを作って」「〇〇の式を入れて」。</dd>
+    <dt>先生や共同研究者に共有したい</dt>
+    <dd>②は PDF を送るか GitHub Pages で公開（公開範囲に注意）。①・③は PowerPoint のファイルで共有できます。</dd>
     <dt>未発表のデータを AI に渡してもいい？</dt>
-    <dd>研究室や共同研究のルールに従ってください。外部に出せない場合は、ローカルLLM を使う方法があります（<a href="#method-vscode">3章の②</a>）。</dd>
+    <dd>研究室や共同研究のルールに従ってください。外部に出せない場合はローカルLLM を使います（<a href="#method-vscode">②</a>）。</dd>
   </dl>
 </section>
 
-<!-- ====================== 8 ====================== -->
+<!-- ====================== 7 ====================== -->
 <section class="chapter" id="summary">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 8</span><h2>まとめ</h2></div>
+  <div class="chapter-head"><span class="chapter-num">CHAPTER 7</span><h2>まとめ</h2></div>
   <ol class="summary">
     <li>内容と伝え方は自分で考え、文章の段階で推敲する。</li>
     <li>推敲した文章をそのまま指示にして、配置やデザインは AI に任せる。</li>
-    <li>確認基準を作って AI に確認と修正を繰り返させ、人は中身の判断に集中する。</li>
+    <li>確認基準を作って AI に確認と修正を繰り返させ、人は中身に集中する。</li>
   </ol>
 </section>
 
-<!-- ====================== 9 ====================== -->
+<!-- ====================== 8 ====================== -->
 <section class="chapter" id="links">
-  <div class="chapter-head"><span class="chapter-num">CHAPTER 9</span><h2>参考リンク</h2></div>
+  <div class="chapter-head"><span class="chapter-num">CHAPTER 8</span><h2>参考リンク</h2></div>
   <div class="links-grid">
     <div><h4>本文で使ったもの</h4><ul>
       <li><a href="https://murata-lab.github.io/quarto-html/nco-intro.html" target="_blank" rel="noopener">例のスライド（完成版）</a></li>
       <li><a href="https://github.com/murata-lab/quarto-html" target="_blank" rel="noopener">quarto-html リポジトリ</a></li>
     </ul></div>
-    <div><h4>① PowerPoint＋アドイン</h4><ul>
+    <div><h4>① PowerPoint内でAIを使う</h4><ul>
       <li><a href="https://claude.com/docs/office-agents/powerpoint" target="_blank" rel="noopener">Claude for PowerPoint</a></li>
       <li><a href="https://help.openai.com/en/articles/20001242" target="_blank" rel="noopener">ChatGPT for PowerPoint</a></li>
       <li><a href="https://learn.microsoft.com/office/dev/add-ins/design/content-add-ins" target="_blank" rel="noopener">コンテンツアドイン（Microsoft Learn）</a></li>
     </ul></div>
     <div><h4>② VS Code＋AIコーディングエージェント</h4><ul>
       <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> / <a href="https://developers.openai.com/codex" target="_blank" rel="noopener">Codex</a> / <a href="https://code.claude.com/docs" target="_blank" rel="noopener">Claude Code</a></li>
-      <li><a href="https://quarto.org/" target="_blank" rel="noopener">Quarto</a> / <a href="https://marp.app/" target="_blank" rel="noopener">Marp</a> / <a href="https://revealjs.com/" target="_blank" rel="noopener">Reveal.js</a></li>
-      <li><a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> / <a href="https://opencode.ai/" target="_blank" rel="noopener">opencode</a></li>
+      <li><a href="https://quarto.org/" target="_blank" rel="noopener">Quarto</a> / <a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> / <a href="https://opencode.ai/" target="_blank" rel="noopener">opencode</a></li>
     </ul></div>
-    <div><h4>③ AI専用のスライド作成環境</h4><ul>
-      <li><a href="https://help.openai.com/en/articles/20001275" target="_blank" rel="noopener">ChatGPT Work</a></li>
+    <div><h4>③ AIのスライド作成機能</h4><ul>
       <li><a href="https://help.openai.com/en/articles/20001605-creating-and-collaborating-on-slides-in-chatgpt" target="_blank" rel="noopener">ChatGPT Slides</a></li>
       <li><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them" target="_blank" rel="noopener">Claude Artifacts（Slides）</a></li>
+      <li><a href="https://help.openai.com/en/articles/20001275" target="_blank" rel="noopener">ChatGPT Work</a></li>
     </ul></div>
   </div>
 </section>

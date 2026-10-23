@@ -240,7 +240,14 @@ body.export .highlight{transition:none}
 #stage #summary li{font-size:23px;line-height:1.65;margin-bottom:10px}
 #stage #summary .summary-takeaway{margin-top:24px;padding:15px 22px;border-left:4px solid #2b8da3;background:#edf6fa}
 #stage #summary .summary-takeaway p{margin:0;font-size:26px;font-weight:650;color:#174b78}
-</style><style>html,body{margin:0;overflow:hidden;background:#fff} .page-number{display:none!important}</style></head><body><div class="reveal"><main class="slides" id="stage"><section aria-hidden="false" class="slide active" data-group="研究背景" data-section-start="false" id="background"><h2>研究背景</h2>
+</style><style>html,body{margin:0;overflow:hidden;background:#fff} .page-number{display:none!important}
+/* ?build：qmd に書いた分だけ表示する（index.html の qmd 書き方デモ用） */
+#background>*{transition:opacity .45s ease}
+body[data-build] #background>*{opacity:0}
+body[data-build] #background>h2,
+body[data-build="2"] #background>p:first-of-type,body[data-build="3"] #background>p:first-of-type,body[data-build="4"] #background>p:first-of-type,
+body[data-build="3"] #background>.animation,body[data-build="4"] #background>.animation,
+body[data-build="4"] #background>*{opacity:1}</style></head><body><div class="reveal"><main class="slides" id="stage"><section aria-hidden="false" class="slide active" data-group="研究背景" data-section-start="false" id="background"><h2>研究背景</h2>
 <p>配送の順番や作業の順番など、社会には組合せを考えて決める問題が多くある。</p>
 <div class="animation loaded"><iframe class="model-animation" srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ja&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;/&gt;&lt;meta content=&quot;width=device-width,initial-scale=1&quot; name=&quot;viewport&quot;/&gt;&lt;title&gt;説明図&lt;/title&gt;&lt;style&gt;:root{color-scheme:light;font-family:&quot;Hiragino Kaku Gothic ProN&quot;,&quot;Yu Gothic&quot;,sans-serif;color:#233244;background:#ffffff}*{box-sizing:border-box}body{margin:0;padding:14px 20px;height:100vh;display:flex;flex-direction:column;overflow:hidden}header{display:flex;align-items:baseline;justify-content:space-between;gap:20px}h1{font-size:20px;margin:0;font-weight:600}#stage{flex:1;min-height:0;cursor:pointer}#stage svg{width:100%;height:100%;display:block}.embedded header{display:none}
